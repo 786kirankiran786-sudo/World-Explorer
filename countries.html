@@ -142,6 +142,29 @@
     <h3>World Explorer</h3>
     <p>Learn about the world with us.</p>
 </footer>
+<div class="search-box">
+    <input
+        type="text"
+        id="countrySearch"
+        placeholder="Search any country..."
+    >
+</div>
+<script>
+const searchInput = document.getElementById("countrySearch");
+
+searchInput.addEventListener("input", function () {
+    const searchValue = this.value.toLowerCase();
+
+    const countries = document.querySelectorAll(".country-card");
+
+    countries.forEach(function (country) {
+        const countryName = country.textContent.toLowerCase();
+
+        country.style.display =
+            countryName.includes(searchValue) ? "" : "none";
+    });
+});
+</script>
 
 </body>
 </html>
